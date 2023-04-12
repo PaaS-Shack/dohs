@@ -59,11 +59,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Log into registry ${{ secrets.GITEA_REGISTRY }}
+      - name: Log into registry ${{ vars.GITEA_REGISTRY }}
         if: github.event_name != 'pull_request'
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
-          registry: ${{ secrets.GITEA_REGISTRY }}
+          registry: ${{ vars.GITEA_REGISTRY }}
           username: ${{ secrets.GITEA_USERNAME }}
           password: ${{ secrets.GITEA_TOKEN }}
 
